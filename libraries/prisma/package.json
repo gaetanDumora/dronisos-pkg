@@ -1,0 +1,16 @@
+{
+  "name": "@repo/prisma",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.15.1",
+    "prisma": "^5.15.1"
+  }
+}

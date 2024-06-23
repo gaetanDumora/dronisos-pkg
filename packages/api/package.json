@@ -1,0 +1,20 @@
+{
+  "name": "@repo/api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@repo/config": "^1.0.0",
+    "@repo/prisma": "^1.0.0",
+    "fastify": "^4.28.0",
+    "fastify-zod": "^1.4.0",
+    "zod": "^3.23.8"
+  }
+}

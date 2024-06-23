@@ -1,0 +1,11 @@
+**/node_modules/
+npm-debug.log
+Dockerfile
+.dockerignore
+.gitignore
+.git
+volumes
+Makefile
+docker-compose.yml
+**/migrations
+**/dist

@@ -1,0 +1,57 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    restart: always
+    container_name: rabbitmq
+    ports:
+      - 41234:41234
+      # ui
+      - 15672:15672
+    volumes:
+      - /var/lib/rabbitmq/
+      - /var/log/rabbitmq
+
+  postgres:
+    image: postgres
+    restart: always
+    container_name: pg
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=dronisos
+      - POSTGRES_PASSWORD=dronisos
+      - POSTGRES_DB=dronisos
+    healthcheck:
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U dronisos -d dronisos'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    entrypoint:
+    volumes:
+      - /var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=dronisos@dronisos.com
+      - PGADMIN_DEFAULT_PASSWORD=dronisos
+    ports:
+      - 5555:80
+
+  # backend:
+  #   container_name: backend
+  #   build:
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - postgres
+  #     - rabbitmq
+  #   ports:
+  #     - 3000:3000
+  #     - 41234:41234
+  #   environment:
+  #     - TCP_HOST=0.0.0.0
+  #     - UDP_HOST=0.0.0.0
+  #     - RABBIT_MQ_URL=amqp://rabbitmq
+  #     - DATABASE_URL=postgres://dronisos:dronisos@postgres:5432/dronisos?schema=public

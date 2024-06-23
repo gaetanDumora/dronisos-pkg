@@ -1,0 +1,31 @@
+{
+  "name": "dronisos-pkg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf packages/**/dist packages/**/*.tsbuildinfo  libraries/**/dist libraries/**/*.tsbuildinfo  config/dist config/*.tsbuildinfo",
+    "start:api": "npm run start -w ./packages/api",
+    "start:udp": "npm run start -w ./packages/adapter",
+    "start:consumer": "npm run start -w ./packages/consumer",
+    "build": "npm run clean && tsc --build --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "workspaces": [
+    "libraries/prisma",
+    "libraries/rabbitmq/*",
+    "packages/*",
+    "config"
+  ],
+  "dependencies": {
+    "rimraf": "^5.0.7",
+    "typescript": "^5.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.8",
+    "ts-node": "^10.9.2"
+  }
+}

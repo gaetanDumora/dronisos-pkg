@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": [
+      "ESNext"
+    ],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "./build"
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./config"
+    },
+    {
+      "path": "./libraries/prisma"
+    },
+    {
+      "path": "./libraries/rabbitmq"
+    },
+    {
+      "path": "./packages/adapter"
+    },
+    {
+      "path": "./packages/consumer"
+    },
+    {
+      "path": "./packages/api"
+    }
+  ],
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
