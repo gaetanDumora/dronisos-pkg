@@ -1,5 +1,8 @@
 #### Start the project locally
 
+Overview:
+![alt text](image.png)
+
 (locally because there's a problem with the url of the backend prisma database that prevents the migration from being launched when the docker image is built)
 
 start containers
