@@ -42,6 +42,7 @@ npm run start:consumer
 ```
 
 start the TCP server
+(send GET request at http://localhost:3000/api/v1/telemetry or to filter on a device http://localhost:3000/api/v1/telemetry/L72)
 
 ```sh
 npm run start:api
