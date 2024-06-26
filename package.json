@@ -8,6 +8,7 @@
     "start:api": "npm run start -w ./packages/api",
     "start:udp": "npm run start -w ./packages/adapter",
     "start:consumer": "npm run start -w ./packages/consumer",
+    "start:all": "concurrently \"npm run start:udp\" \"npm run start:consumer\" \"npm run start:api\"",
     "build": "npm run clean && tsc --build --verbose"
   },
   "keywords": [],
@@ -21,6 +22,7 @@
     "config"
   ],
   "dependencies": {
+    "concurrently": "^8.2.2",
     "rimraf": "^5.0.7",
     "typescript": "^5.5.2"
   },

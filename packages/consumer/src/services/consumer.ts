@@ -16,7 +16,6 @@ type Telemetry = {
 export const persistMessages = async (db: PrismaClient) => {
   return async (message: Message) => {
     const telemetry: Telemetry = JSON.parse(message.content.toString());
-    console.log({ telemetry });
     await db.devices.create({
       data: {
         name: telemetry.name,
